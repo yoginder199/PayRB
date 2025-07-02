@@ -1,0 +1,47 @@
+<h1>Create New User Account</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div>
+    <%= f.label :account_no %><br>
+    <%= f.text_field :account_no %>
+  </div>
+
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :phone_number %><br>
+    <%= f.telephone_field :phone_number %>
+  </div>
+
+  <div>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.label :role %><br>
+    <%= f.select :role, User::ROLES %>
+  </div>
+
+  <div>
+    <%= f.label :account_type %><br>
+    <%= f.select :account_type, User::ACCOUNT_TYPES %>
+  </div>
+
+  <div>
+    <%= f.submit "Create User" %>
+  </div>
+<% end %>

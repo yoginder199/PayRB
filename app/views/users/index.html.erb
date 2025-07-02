@@ -1,0 +1,28 @@
+<h1>Admin Dashboard</h1>
+
+<p><%= link_to "Create New Account", new_user_path, class: "button" %></p>
+
+<table border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Account No</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Role</th>
+      <th>Account Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.account_no %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone_number %></td>
+        <td><%= user.role %></td>
+        <td><%= user.account_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
