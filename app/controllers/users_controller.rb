@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :require_admin
+  before_action :require_admin, only: [:index, :new, :create]
+  before_action :require_login, only: [:show] # Optional: add auth check for profile
 
   def index
     @users = User.all
@@ -18,13 +19,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+  end
+
   private
 
   def user_params
     params.require(:user).permit(
       :account_no, :name, :email, :phone_number,
       :password, :password_confirmation,
-      :role, :account_type
+      :role, :account_type, :balance
     )
+  end
+
+  def require_login
+    redirect_to login_path, alert: "Please login first." unless current_user
   end
 end

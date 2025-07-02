@@ -19,6 +19,13 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <% if current_user %>
+  <p>
+    Logged in as <%= current_user.name %> |
+    Account No: <strong><%= current_user.account_no %></strong> |
+    <%= button_to "Logout", logout_path, method: :delete, form: { style: "display:inline" } %>
+  </p>
+<% end %>
   </head>
 
   <body>

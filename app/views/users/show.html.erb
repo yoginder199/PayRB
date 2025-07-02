@@ -1,0 +1,9 @@
+<h1>Your Profile</h1>
+
+<p><strong>Account No:</strong> <%= @user.account_no %></p>
+<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>Phone Number:</strong> <%= @user.phone_number %></p>
+<p><strong>Role:</strong> <%= @user.role %></p>
+<p><strong>Account Type:</strong> <%= @user.account_type %></p>
+<p><strong>Balance:</strong> ₹<%= number_with_precision(@user.balance, precision: 2) %></p>

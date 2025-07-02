@@ -11,6 +11,7 @@
       <th>Phone Number</th>
       <th>Role</th>
       <th>Account Type</th>
+      <th>Balance</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td><%= user.phone_number %></td>
         <td><%= user.role %></td>
         <td><%= user.account_type %></td>
+        <td><%= number_to_currency(user.balance || 0) %></td>
       </tr>
     <% end %>
   </tbody>

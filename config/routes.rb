@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get "users/index"
-  get "users/new"
-  get "users/create"
+  # get "users/index"
+  # get "users/new"
+  # get "users/create"
   root 'sessions#new'
 
   get '/login', to: 'sessions#new'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:index,:new, :create]
+  get '/profile', to: 'users#show', as: 'profile'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

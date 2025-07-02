@@ -41,6 +41,11 @@
     <%= f.select :account_type, User::ACCOUNT_TYPES %>
   </div>
 
+<div>
+    <%= f.label :balance %><br>
+    <%= f.number_field :balance, step: 0.01 %>
+  </div>
+
   <div>
     <%= f.submit "Create User" %>
   </div>
