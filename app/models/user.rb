@@ -7,4 +7,3 @@ class User < ApplicationRecord
   validates :role, inclusion: { in: ROLES }
   validates :account_type, inclusion: { in: ACCOUNT_TYPES }, allow_nil: true
 end
-

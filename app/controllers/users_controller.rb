@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :require_admin, only: [:index, :new, :create]
-  before_action :require_login, only: [:show] # Optional: add auth check for profile
+  attr_reader :users
+
+  before_action :require_admin, only: [ :index, :new, :create ]
+  before_action :require_login, only: [ :show ] # Optional: add auth check for profile
 
   def index
     @users = User.all
@@ -21,6 +23,25 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+  end
+
+  def new_pin
+    @user = User.find(params[:id])
+  end
+
+  def set_pin
+    user = current_user
+
+    if user.pin.present?
+      return render json: { error: "PIN already set" }, status: :unprocessable_entity
+    end
+
+    if params[:pin].blank?
+      return render json: { error: "PIN can't be blank" }, status: :unprocessable_entity
+    end
+
+    user.update(pin: params[:pin])
+    render json: { message: "PIN set successfully" }, status: :ok
   end
 
   private
