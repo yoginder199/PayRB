@@ -16,6 +16,9 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <% if logged_in? %>
+  <%= link_to "Transfer", current_user.pin_set? ? new_transfer_path : new_pin_path, class: "nav-link" %>
+<% end %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>

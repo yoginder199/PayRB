@@ -1,0 +1,12 @@
+<h2>Transfer Amount</h2>
+
+<%= form_with url: transfers_path, method: :post do %>
+  <div>
+    <%= label_tag :amount, "Amount (₹)" %><br>
+    <%= number_field_tag :amount, nil, step: 0.01 %>
+  </div>
+
+  <br>
+
+  <%= submit_tag "Transfer", class: "btn btn-primary" %>
+<% end %>

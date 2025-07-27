@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get "pins/new"
+  get "pins/create"
+  get "transfers/new"
+  get "transfers/create"
+  get "transfers/index"
   # get "users/index"
   # get "users/new"
   # get "users/create"
@@ -9,6 +14,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users, only: [ :index, :new, :create ]
+  resource :pin, only: [ :new, :create ]
+resources :transfers, only: [ :new, :create ]
   get "/profile", to: "users#show", as: "profile"
 
   resources :users do

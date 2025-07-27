@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path, alert: "Access denied."
     end
   end
+
+  def require_login
+    unless logged_in?
+      redirect_to login_path, alert: "Please log in first."
+    end
+  end
 end

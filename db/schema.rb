@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_25_150857) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_27_100637) do
+  create_table "transfers", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "account_no"
     t.string "name"
@@ -23,5 +31,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_25_150857) do
     t.datetime "updated_at", null: false
     t.decimal "balance"
     t.string "pin"
+    t.string "pin_digest"
   end
 end

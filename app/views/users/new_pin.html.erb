@@ -1,0 +1,10 @@
+<h2>Set Your PIN</h2>
+
+<%= form_with url: set_pin_user_path(@user), method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :pin, "Enter your 4-digit PIN" %><br>
+    <%= form.password_field :pin %>
+  </div>
+  <br>
+  <%= form.submit "Set PIN" %>
+<% end %>
